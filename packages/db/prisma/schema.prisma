@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model LifeArea {
+  id String @id @default(uuid()) @db.Uuid
+  name String @unique
+  description String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  color String @default("#9CA3D4")
+  archived Boolean @default(false)
+  goals Goal[]
+}
+
+enum GoalStatus {
+  ACTIVE
+  INTEREST
+  PAUSED
+  DONE
+}
+
+model Goal {
+  id String @id @default(uuid()) @db.Uuid
+  name String
+  description String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status GoalStatus @default(INTEREST)
+  lifeAreaId String @db.Uuid
+  lifeArea   LifeArea @relation(fields: [lifeAreaId], references: [id])
+}
