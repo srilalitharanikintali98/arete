@@ -1,31 +1,24 @@
 {
   "name": "arete",
-  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+  "packageManager": "pnpm@12.8.1",
+  "engines": {
+    "node": ">=20.19"
   },
-  "dependencies": {
-    "@prisma/adapter-pg": "7.8.0",
-    "@prisma/client": "7.8.0",
-    "next": "16.2.10",
-    "pg": "8.22.0",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=@arete/web",
+    "dev:api": "turbo run dev --filter=@arete/api",
+    "dev:mobile": "turbo run dev --filter=@arete/mobile",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "db:generate": "pnpm --filter @arete/db generate",
+    "db:migrate:dev": "pnpm --filter @arete/db migrate:dev",
+    "db:migrate:deploy": "pnpm --filter @arete/db migrate:deploy",
+    "db:seed": "pnpm --filter @arete/db seed"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.10",
-    "prisma": "7.8.0",
-    "tailwindcss": "^4",
-    "tsx": "4.23.0",
-    "typescript": "^5"
+    "turbo": "^2.11.5"
   }
 }

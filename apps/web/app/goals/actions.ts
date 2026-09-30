@@ -1,8 +1,6 @@
 "use server"
-import prisma from "@/lib/prisma"
+import { prisma, Prisma, GoalStatus } from "@arete/db"
 import { revalidatePath } from "next/cache"
-import { Prisma } from "@/app/generated/prisma/client"
-import { GoalStatus } from "@/app/generated/prisma/client"
 
 export async function createGoal(formData: FormData) {
   const name = formData.get("name") as string

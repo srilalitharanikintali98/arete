@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arete
 
-## Getting Started
+A personal operating system: goals, projects, tasks and habits in one place.
+Monorepo containing the web app, mobile app and API.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+apps/
+  web/      Next.js (App Router) — the main app, deployed on Vercel
+  api/      Hono API (Node) — for mobile and anything that isn't a server action
+  mobile/   Expo / React Native
+packages/
+  db/       Prisma schema, migrations, seed and the shared client  (@arete/db)
+  shared/   Types and validation usable everywhere, incl. mobile   (@arete/shared)
+  config/   Shared tsconfig bases                                  (@arete/config)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Requires Node >= 20.19 and pnpm (`corepack enable` picks up the pinned version).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cp .env.example .env     # fill in DATABASE_URL and DIRECT_URL (arete-dev!)
+pnpm install             # also runs `prisma generate`
+pnpm dev:web             # http://localhost:3000
+pnpm dev:api             # http://localhost:4000/health
+pnpm dev:mobile          # Expo dev server
+```
 
-## Learn More
+One `.env` at the repo root is shared by web, api and the Prisma CLI.
 
-To learn more about Next.js, take a look at the following resources:
+## Common commands
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | What it does |
+|---|---|
+| `pnpm dev` | Run every app's dev server via Turborepo |
+| `pnpm build` / `pnpm typecheck` / `pnpm lint` | Run across all packages |
+| `pnpm db:generate` | Regenerate the Prisma client |
+| `pnpm db:migrate:dev` | Create/apply a migration — **arete-dev only** |
+| `pnpm db:migrate:deploy` | Apply migrations — the only migrate command for `arete-prod` |
+| `pnpm db:seed` | Seed life areas |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Rules of the road
 
-## Deploy on Vercel
+- **Never run `db:migrate:dev` against `arete-prod`.** Only `migrate deploy`.
+- `@arete/db` is server-only. Never import it from client components or `apps/mobile`;
+  use `@arete/shared` (or `@arete/db/enums` in web server/client-safe code) instead.
+- Internal packages are consumed as TypeScript source — no build step for `db` or `shared`.
+- The "at most one of `projectId`/`goalId`" rule lives in `@arete/shared` (`parentRefSchema`);
+  use it on every write path (web actions, API routes, mobile).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploying web on Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Set the project's **Root Directory** to `apps/web` (keep "Include source files outside of the
+Root Directory" on). `DATABASE_URL` / `DIRECT_URL` stay as they are per environment.
