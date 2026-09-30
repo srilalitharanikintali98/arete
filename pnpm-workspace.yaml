@@ -2,11 +2,11 @@ packages:
   - apps/*
   - packages/*
 allowBuilds:
-  '@prisma/engines': set this to true or false
-  esbuild: set this to true or false
-  prisma: set this to true or false
-  sharp: set this to true or false
-  unrs-resolver: set this to true or false
+  '@prisma/engines': true
+  esbuild: true
+  prisma: true
+  sharp: true
+  unrs-resolver: true
 minimumReleaseAgeExclude:
   - '@hono/node-server@2.1.3'
   - expo-constants@57.0.20
