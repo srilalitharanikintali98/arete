@@ -13,7 +13,8 @@ export const primitives: {
 };
 export namespace semantic {
     namespace background {
-        export default primitives.cream;
+        import base = primitives.cream;
+        export { base };
         import surface = primitives.ivory;
         export { surface };
     }
@@ -53,7 +54,7 @@ export namespace semantic {
 }
 export namespace tailwindColors {
     export namespace background_1 {
-        import DEFAULT = default;
+        import DEFAULT = base;
         export { DEFAULT };
     }
     export { background_1 as background };
