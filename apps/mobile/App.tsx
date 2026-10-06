@@ -8,9 +8,9 @@ import { GOAL_STATUSES } from "@arete/shared"
 
 export default function App() {
   return (
-    <View className="flex-1 bg-[#F7F3EC] items-center justify-center gap-2">
-      <Text className="text-2xl font-light text-[#2E4B36]">ARETE</Text>
-      <Text className="text-lg text-[#6B6B6B]">Goal statuses: {GOAL_STATUSES.join(" / ").toLowerCase()}</Text>
+    <View className="flex-1 bg-background items-center justify-center gap-2">
+      <Text className="text-2xl font-light text-primary">ARETE</Text>
+      <Text className="text-lg text-content-secondary">Goal statuses: {GOAL_STATUSES.join(" / ").toLowerCase()}</Text>
       <StatusBar style="dark" />
     </View>
   )
