@@ -1,7 +1,7 @@
 const fontFamily = {
-  light: ["Inter_300Light"],
-  regular: ["Inter_400Regular"],
-  semibold: ["Inter_600SemiBold"],
+  "inter-light": ["Inter_300Light"],
+  "inter-regular": ["Inter_400Regular"],
+  "inter-semibold": ["Inter_600SemiBold"],
 }
 
 // Tailwind format: name: [fontSize, { lineHeight, letterSpacing }]

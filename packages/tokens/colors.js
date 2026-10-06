@@ -13,7 +13,7 @@ const primitives = {
 }
 
 const semantic = {
-  background: { default: primitives.cream, surface: primitives.ivory },
+  background: { base: primitives.cream, surface: primitives.ivory },
   border: { subtle: primitives.sage },
   action: { primary: primitives.forest, secondary: primitives.olive },
   accent: { subtle: primitives.sage, gold: primitives.gold },
@@ -29,7 +29,7 @@ const semantic = {
 }
 
 const tailwindColors = {
-  background: { DEFAULT: semantic.background.default },
+  background: { DEFAULT: semantic.background.base },
   surface: semantic.background.surface,
   line: semantic.border.subtle,
   primary: semantic.action.primary,

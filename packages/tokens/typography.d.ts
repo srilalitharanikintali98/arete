@@ -1,8 +1,8 @@
-export namespace fontFamily {
-    let light: string[];
-    let regular: string[];
-    let semibold: string[];
-}
+export const fontFamily: {
+    "inter-light": string[];
+    "inter-regular": string[];
+    "inter-semibold": string[];
+};
 export const fontSize: {
     display: (string | {
         letterSpacing: string;
