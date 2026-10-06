@@ -11,10 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "^4.6.5"
+    "zod": "4.6.5"
   },
   "devDependencies": {
     "@arete/config": "workspace:*",
-    "typescript": "^5"
+    "typescript": "5.9.3"
   }
 }

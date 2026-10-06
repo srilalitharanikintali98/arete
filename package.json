@@ -19,6 +19,6 @@
     "db:seed": "pnpm --filter @arete/db seed"
   },
   "devDependencies": {
-    "turbo": "^2.11.5"
+    "turbo": "2.11.5"
   }
 }
