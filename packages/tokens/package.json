@@ -1,0 +1,19 @@
+{
+  "name": "@arete/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "build:types": "tsc -p tsconfig.json"
+  }
+}
