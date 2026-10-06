@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "module": "commonjs",
+    "target": "ES2019",
+    "skipLibCheck": true
+  },
+  "include": ["*.js"],
+  "exclude": ["node_modules"]
+}
