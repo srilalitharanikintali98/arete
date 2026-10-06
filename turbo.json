@@ -20,6 +20,10 @@
     },
     "typecheck": {
       "dependsOn": ["^generate"]
+    },
+    "build:types": {
+      "inputs": ["*.js", "tsconfig.json"],
+      "outputs": ["*.d.ts"]
     }
   }
 }
