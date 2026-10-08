@@ -5,6 +5,7 @@ import { Pressable } from "../foundations/Pressable"
 import { Screen } from "../foundations/Screen"
 import { Text } from "../foundations/Text"
 import { Icon, IconName } from "../foundations/Icon"
+import { Button } from "../foundations/Button"
 
 const iconNames: IconName[] = ["check", "archive", "edit", "add", "back", "droplet", "calendar", "home", "grid", "progress", "goals", "me"]
 
@@ -54,6 +55,17 @@ function Gallery() {
           <Text className="text-meta font-inter-regular">Meta line, 13px Inter</Text>
         </Section>
 
+        <Section title="Icons">
+          <View className="flex-row flex-wrap gap-4">
+            {iconNames.map((name) => (
+              <Icon key={name} name={name} />
+            ))}
+          </View>
+          <View className="flex-row gap-4">
+            <Icon name="droplet" size={40} />
+            <Icon name="check" color="#B89B53" />
+          </View>
+        </Section>
         <Section title="Pressable">
           <Pressable className="items-center justify-center rounded-md border border-line px-4" onPress={() => setCount((c) => c + 1)}>
             <Text>Tapped {count} times (hold to see the fade)</Text>
@@ -68,16 +80,13 @@ function Gallery() {
           </Pressable>
         </Section>
 
-        <Section title="Icons">
-          <View className="flex-row flex-wrap gap-4">
-            {iconNames.map((name) => (
-              <Icon key={name} name={name} />
-            ))}
-          </View>
-          <View className="flex-row gap-4">
-            <Icon name="droplet" size={40} />
-            <Icon name="check" color="#B89B53" />
-          </View>
+        <Section title="Button">
+          <Button label="Continue" onPress={() => {}} />
+          <Button label="Continue" variant="secondary" onPress={() => {}} />
+          <Button label="Continue" variant="ghost" onPress={() => {}} />
+          <Button label="Continue" disabled />
+          <Button label="Continue" variant="secondary" disabled />
+          <Button label="Continue" variant="ghost" disabled />
         </Section>
       </ScrollView>
     </Screen>
