@@ -2,12 +2,12 @@ import "./global.css"
 import { useEffect } from "react"
 import * as SplashScreen from "expo-splash-screen"
 import { useFonts, Inter_300Light, Inter_400Regular, Inter_600SemiBold } from "@expo-google-fonts/inter"
+import { CormorantGaramond_400Regular, CormorantGaramond_500Medium, CormorantGaramond_600SemiBold, CormorantGaramond_500Medium_Italic } from "@expo-google-fonts/cormorant-garamond"
 import { StatusBar } from "expo-status-bar"
-import { Text, View } from "react-native"
-import { GOAL_STATUSES } from "@arete/shared"
+import { View } from "react-native"
+import { SafeAreaProvider } from "react-native-safe-area-context"
 
-// Placeholder screen. Proves the workspace wiring (@arete/shared) works in Metro.
-// Real screens come after the v0 web flow is in daily use.
+import Gallery from "./src/ui/gallery/Gallery"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -16,6 +16,10 @@ export default function App() {
     Inter_300Light,
     Inter_400Regular,
     Inter_600SemiBold,
+    CormorantGaramond_400Regular,
+    CormorantGaramond_500Medium,
+    CormorantGaramond_600SemiBold,
+    CormorantGaramond_500Medium_Italic,
   })
 
   useEffect(() => {
@@ -32,14 +36,11 @@ export default function App() {
   }
 
   return (
-    <View className="flex-1 bg-background items-center justify-center gap-2">
-      <Text className="text-display uppercase font-inter-light text-primary">ARETE</Text>
-      <Text className="text-body font-inter-regular text-content-secondary">Goal statuses: {GOAL_STATUSES.join(" / ").toLowerCase()}</Text>
-      <Text className="font-inter-light">Test 1</Text>
-      <Text className="font-inter-regular">Test 2</Text>
-      <Text className="font-inter-semibold">Test 3</Text>
-
-      <StatusBar style="dark" />
-    </View>
+    <SafeAreaProvider>
+      <View className="flex-1 bg-background">
+        <Gallery />
+        <StatusBar style="dark" />
+      </View>
+    </SafeAreaProvider>
   )
 }
