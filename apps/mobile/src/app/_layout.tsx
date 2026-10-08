@@ -6,11 +6,28 @@ import { CormorantGaramond_400Regular, CormorantGaramond_500Medium, CormorantGar
 import { StatusBar } from "expo-status-bar"
 import { View } from "react-native"
 import { SafeAreaProvider } from "react-native-safe-area-context"
-import { Slot } from "expo-router"
+import { Stack } from "expo-router"
 
-import Gallery from "../ui/gallery/Gallery"
+import { AuthProvider, useAuth } from "../auth/AuthContext"
 
 SplashScreen.preventAutoHideAsync()
+
+function RootNavigator() {
+  const { signedIn } = useAuth()
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Protected guard={signedIn}>
+        <Stack.Screen name="(tabs)" />
+      </Stack.Protected>
+      <Stack.Protected guard={!signedIn}>
+        <Stack.Screen name="(auth)" />
+      </Stack.Protected>
+      <Stack.Protected guard={__DEV__}>
+        <Stack.Screen name="gallery" title="Gallery" options={{ headerShown: true }} />
+      </Stack.Protected>
+    </Stack>
+  )
+}
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
@@ -37,11 +54,13 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <View className="flex-1 bg-background">
-        <Slot />
-        <StatusBar style="dark" />
-      </View>
-    </SafeAreaProvider>
+    <AuthProvider>
+      <SafeAreaProvider>
+        <View className="flex-1 bg-background">
+          <RootNavigator />
+          <StatusBar style="dark" />
+        </View>
+      </SafeAreaProvider>
+    </AuthProvider>
   )
 }

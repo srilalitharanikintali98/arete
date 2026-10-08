@@ -1,5 +1,5 @@
 import Gallery from "../ui/gallery/Gallery"
 
-export default function Home() {
+export default function GalleryScreen() {
   return <Gallery />
 }
