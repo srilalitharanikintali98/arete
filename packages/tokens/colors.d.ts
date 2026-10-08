@@ -4,6 +4,7 @@ export const primitives: {
     forest: string;
     olive: string;
     sage: string;
+    "sage-55": string;
     gold: string;
     clay: string;
     charcoal: string;
@@ -17,10 +18,13 @@ export namespace semantic {
         export { base };
         import surface = primitives.ivory;
         export { surface };
+        import inverse = primitives.forest;
+        export { inverse };
     }
     namespace border {
         import subtle = primitives.sage;
         export { subtle };
+        export let hairline: string;
     }
     namespace action {
         import primary = primitives.forest;
@@ -44,6 +48,8 @@ export namespace semantic {
         disabled: string;
         "on-primary": string;
         "on-dark": string;
+        "on-inverse": string;
+        "on-inverse-muted": string;
     };
     namespace icon {
         import primary_1 = primitives.forest;
@@ -72,6 +78,10 @@ export namespace tailwindColors {
     export { gold_1 as gold };
     import clay_1 = clay;
     export { clay_1 as clay };
+    import hairline_1 = hairline;
+    export { hairline_1 as hairline };
+    import inverse_1 = inverse;
+    export { inverse_1 as inverse };
     export namespace content {
         import DEFAULT_1 = primary;
         export { DEFAULT_1 as DEFAULT };
@@ -80,14 +90,15 @@ export namespace tailwindColors {
         import disabled = disabled;
         export { disabled };
     }
-    export namespace on {
-        let primary_3: string;
-        export { primary_3 as primary };
-        export let dark: string;
-    }
+    export let on: {
+        primary: string;
+        dark: string;
+        inverse: string;
+        "inverse-muted": string;
+    };
     export namespace icon_1 {
-        import primary_4 = primary;
-        export { primary_4 as primary };
+        import primary_3 = primary;
+        export { primary_3 as primary };
         import secondary_4 = secondary;
         export { secondary_4 as secondary };
     }

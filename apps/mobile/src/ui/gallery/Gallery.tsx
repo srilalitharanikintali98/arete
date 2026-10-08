@@ -41,6 +41,16 @@ function Gallery() {
           </Text>
         </Section>
 
+        <Section title="Serif fonts">
+          <Text className="text-display-name font-serif-regular">Lalitha</Text>
+          <Text className="text-quote-identity font-serif-medium">Someone who shows up every day</Text>
+          <Text className="text-heading-serif font-serif-medium">What will you do today?</Text>
+          <Text className="text-title-serif font-serif-semibold">Run a half marathon</Text>
+          <Text className="text-greeting font-serif-medium-italic">Good evening,</Text>
+          <Text className="text-caption-serif font-serif-medium-italic">That's who you're becoming.</Text>
+          <Text className="text-meta font-inter-regular">Meta line, 13px Inter</Text>
+        </Section>
+
         <Section title="Pressable">
           <Pressable className="items-center justify-center rounded-md border border-line px-4" onPress={() => setCount((c) => c + 1)}>
             <Text>Tapped {count} times (hold to see the fade)</Text>
