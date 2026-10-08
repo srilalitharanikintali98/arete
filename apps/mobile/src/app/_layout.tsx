@@ -1,4 +1,4 @@
-import "./global.css"
+import "../../global.css"
 import { useEffect } from "react"
 import * as SplashScreen from "expo-splash-screen"
 import { useFonts, Inter_300Light, Inter_400Regular, Inter_600SemiBold } from "@expo-google-fonts/inter"
@@ -6,12 +6,13 @@ import { CormorantGaramond_400Regular, CormorantGaramond_500Medium, CormorantGar
 import { StatusBar } from "expo-status-bar"
 import { View } from "react-native"
 import { SafeAreaProvider } from "react-native-safe-area-context"
+import { Slot } from "expo-router"
 
-import Gallery from "./src/ui/gallery/Gallery"
+import Gallery from "../ui/gallery/Gallery"
 
 SplashScreen.preventAutoHideAsync()
 
-export default function App() {
+export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
     Inter_300Light,
     Inter_400Regular,
@@ -38,7 +39,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <View className="flex-1 bg-background">
-        <Gallery />
+        <Slot />
         <StatusBar style="dark" />
       </View>
     </SafeAreaProvider>

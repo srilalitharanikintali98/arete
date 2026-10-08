@@ -2,7 +2,7 @@
   "name": "@arete/mobile",
   "version": "1.0.0",
   "private": true,
-  "main": "index.ts",
+  "main": "expo-router/entry",
   "scripts": {
     "dev": "expo start --clear",
     "start": "expo start",
@@ -16,7 +16,10 @@
     "@expo-google-fonts/cormorant-garamond": "0.4.1",
     "@expo-google-fonts/inter": "0.4.2",
     "expo": "57.0.26",
+    "expo-constants": "57.0.21",
     "expo-font": "57.0.4",
+    "expo-linking": "57.0.12",
+    "expo-router": "57.0.25",
     "expo-splash-screen": "57.0.9",
     "expo-status-bar": "57.0.1",
     "nativewind": "4.2.7",
@@ -25,6 +28,7 @@
     "react-native-css-interop": "0.2.7",
     "react-native-reanimated": "4.7.1",
     "react-native-safe-area-context": "5.10.1",
+    "react-native-screens": "4.26.2",
     "react-native-svg": "15.15.4",
     "tailwind-merge": "2.6.1"
   },
