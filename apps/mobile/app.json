@@ -23,9 +23,7 @@
       "bundler": "metro"
     },
     "scheme": "arete",
-    "plugins": [
-      "expo-font",
-      "expo-splash-screen"
-    ]
+    "plugins": ["expo-font", "expo-splash-screen", "expo-router"],
+    "experiments": { "typedRoutes": true }
   }
 }

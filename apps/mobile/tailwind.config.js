@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 require("@arete/tokens")
 module.exports = {
-  content: ["App.tsx", "./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
