@@ -7,6 +7,8 @@ import { Text } from "../foundations/Text"
 import { Icon, IconName } from "../foundations/Icon"
 import { Button } from "../foundations/Button"
 import { GrowthStage, type GrowthStageName } from "../components/GrowthStage"
+import { ProgressDots } from "../components/ProgressDots"
+import { ProgressBar } from "../components/ProgressBar"
 
 const iconNames: IconName[] = ["check", "archive", "edit", "add", "back", "droplet", "calendar", "home", "grid", "progress", "goals", "me"]
 const stages: GrowthStageName[] = ["planted", "sprouting", "growing", "flourishing"]
@@ -99,6 +101,25 @@ function Gallery() {
                 <Text variant="meta">{stage}</Text>
               </View>
             ))}
+          </View>
+        </Section>
+
+        <Section title="Progress Dots">
+          <View className="gap-md">
+            {[0, 1, 3, 5, 6].map((done) => (
+              <ProgressDots key={done} total={6} done={done} />
+            ))}
+          </View>
+        </Section>
+
+        <Section title="Progress Bar">
+          <View className="gap-md">
+            {[0, 1, 2, 3, 4].map((done) => (
+              <ProgressBar key={done} total={4} done={done} />
+            ))}
+            <ProgressBar total={12} done={4} />
+            <ProgressBar total={12} done={11} />
+            <ProgressBar total={12} done={12} />
           </View>
         </Section>
       </ScrollView>
