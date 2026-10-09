@@ -6,8 +6,10 @@ import { Screen } from "../foundations/Screen"
 import { Text } from "../foundations/Text"
 import { Icon, IconName } from "../foundations/Icon"
 import { Button } from "../foundations/Button"
+import { GrowthStage, type GrowthStageName } from "../components/GrowthStage"
 
 const iconNames: IconName[] = ["check", "archive", "edit", "add", "back", "droplet", "calendar", "home", "grid", "progress", "goals", "me"]
+const stages: GrowthStageName[] = ["planted", "sprouting", "growing", "flourishing"]
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -87,6 +89,17 @@ function Gallery() {
           <Button label="Continue" disabled />
           <Button label="Continue" variant="secondary" disabled />
           <Button label="Continue" variant="ghost" disabled />
+        </Section>
+
+        <Section title="Growth Stage">
+          <View className="flex-row gap-lg">
+            {stages.map((stage) => (
+              <View key={stage} className="items-center gap-xs">
+                <GrowthStage stage={stage} />
+                <Text variant="meta">{stage}</Text>
+              </View>
+            ))}
+          </View>
         </Section>
       </ScrollView>
     </Screen>
