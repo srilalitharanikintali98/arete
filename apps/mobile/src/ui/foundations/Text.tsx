@@ -9,6 +9,7 @@ const variants = {
   body: "text-body font-inter-regular",
   eyebrow: "text-eyebrow font-inter-semibold uppercase",
   label: "text-label font-inter-semibold",
+  meta: "text-meta font-inter-regular",
 }
 
 const base = "text-content"

@@ -1,10 +1,10 @@
 export const spacing: {
     "2xs": string;
-    xs: number;
-    sm: number;
+    xs: string;
+    sm: string;
     "sm-md": string;
-    md: number;
-    lg: number;
-    xl: number;
-    "2xl": number;
+    md: string;
+    lg: string;
+    xl: string;
+    "2xl": string;
 };

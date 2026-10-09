@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-require("@arete/tokens")
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],

@@ -5,9 +5,10 @@ import { cn } from "../cn"
 
 type Props = ViewProps & {
   className?: string
+  edges?: ("top" | "bottom" | "left" | "right")[]
 }
 
-export function Screen({ className, style, ...rest }: Props) {
+export function Screen({ className, style, edges = ["bottom", "left", "right", "top"], ...rest }: Props) {
   const insets = useSafeAreaInsets()
 
   return (
@@ -15,10 +16,10 @@ export function Screen({ className, style, ...rest }: Props) {
       className={cn("flex-1 bg-background", className)}
       style={[
         {
-          paddingTop: insets.top,
-          paddingBottom: insets.bottom,
-          paddingLeft: insets.left,
-          paddingRight: insets.right,
+          paddingTop: edges.includes("top") ? insets.top : 0,
+          paddingBottom: edges.includes("bottom") ? insets.bottom : 0,
+          paddingLeft: edges.includes("left") ? insets.left : 0,
+          paddingRight: edges.includes("right") ? insets.right : 0,
         },
         style,
       ]}

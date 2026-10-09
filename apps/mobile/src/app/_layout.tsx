@@ -23,7 +23,7 @@ function RootNavigator() {
         <Stack.Screen name="(auth)" />
       </Stack.Protected>
       <Stack.Protected guard={__DEV__}>
-        <Stack.Screen name="gallery" title="Gallery" options={{ headerShown: true }} />
+        <Stack.Screen name="gallery" options={{ headerShown: true, title: "Gallery" }} />
       </Stack.Protected>
     </Stack>
   )
