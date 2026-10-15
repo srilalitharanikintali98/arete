@@ -7,6 +7,7 @@ import { Text } from "../foundations/Text"
 import { Icon, IconName } from "../foundations/Icon"
 import { Button } from "../foundations/Button"
 import { GrowthStage, type GrowthStageName } from "../components/GrowthStage"
+import { StreakIndicator } from "../components/StreakIndicator"
 
 const iconNames: IconName[] = ["check", "archive", "edit", "add", "back", "droplet", "calendar", "home", "grid", "progress", "goals", "me"]
 const stages: GrowthStageName[] = ["planted", "sprouting", "growing", "flourishing"]
@@ -99,6 +100,13 @@ function Gallery() {
                 <Text variant="meta">{stage}</Text>
               </View>
             ))}
+          </View>
+        </Section>
+
+        <Section title="Streak Indicator">
+          <View className="gap-md">
+            <StreakIndicator days={12} />
+            <StreakIndicator days={0} />
           </View>
         </Section>
       </ScrollView>
