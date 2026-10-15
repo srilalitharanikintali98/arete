@@ -32,7 +32,15 @@ type Props = Omit<PressableProps, "children"> & {
 
 export function Button({ label, variant = "primary", disabled, className, ...rest }: Props) {
   return (
-    <Pressable disabled={disabled} className={cn("items-center justify-center rounded-full px-xl py-md disabled:opacity-100", disabled ? disabledContainers[variant] : containers[variant], className)} {...rest}>
+    <Pressable
+      disabled={disabled}
+      className={cn(
+        "items-center justify-center rounded-full px-xl py-md disabled:opacity-100",
+        disabled ? disabledContainers[variant] : containers[variant],
+        className,
+      )}
+      {...rest}
+    >
       <Text variant="label" className={disabled ? "text-content-disabled" : labels[variant]}>
         {label}
       </Text>

@@ -9,7 +9,20 @@ import { Button } from "../foundations/Button"
 import { GrowthStage, type GrowthStageName } from "../components/GrowthStage"
 import { StreakIndicator } from "../components/StreakIndicator"
 
-const iconNames: IconName[] = ["check", "archive", "edit", "add", "back", "droplet", "calendar", "home", "grid", "progress", "goals", "me"]
+const iconNames: IconName[] = [
+  "check",
+  "archive",
+  "edit",
+  "add",
+  "back",
+  "droplet",
+  "calendar",
+  "home",
+  "grid",
+  "progress",
+  "goals",
+  "me",
+]
 const stages: GrowthStageName[] = ["planted", "sprouting", "growing", "flourishing"]
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -70,15 +83,25 @@ function Gallery() {
           </View>
         </Section>
         <Section title="Pressable">
-          <Pressable className="items-center justify-center rounded-md border border-line px-4" onPress={() => setCount((c) => c + 1)}>
+          <Pressable
+            className="items-center justify-center rounded-md border border-line px-4"
+            onPress={() => setCount((c) => c + 1)}
+          >
             <Text>Tapped {count} times (hold to see the fade)</Text>
           </Pressable>
 
-          <Pressable className="items-center justify-center self-start rounded-md bg-tint" onPress={() => setCount((c) => c + 1)}>
+          <Pressable
+            className="items-center justify-center self-start rounded-md bg-tint"
+            onPress={() => setCount((c) => c + 1)}
+          >
             <View className="h-4 w-4 bg-primary" />
           </Pressable>
 
-          <Pressable disabled className="items-center justify-center rounded-md border border-line px-4" onPress={() => setCount((c) => c + 1)}>
+          <Pressable
+            disabled
+            className="items-center justify-center rounded-md border border-line px-4"
+            onPress={() => setCount((c) => c + 1)}
+          >
             <Text>Disabled (should not count)</Text>
           </Pressable>
         </Section>

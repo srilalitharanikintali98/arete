@@ -8,7 +8,12 @@ type Props = ViewProps & {
   edges?: ("top" | "bottom" | "left" | "right")[]
 }
 
-export function Screen({ className, style, edges = ["bottom", "left", "right", "top"], ...rest }: Props) {
+export function Screen({
+  className,
+  style,
+  edges = ["bottom", "left", "right", "top"],
+  ...rest
+}: Props) {
   const insets = useSafeAreaInsets()
 
   return (

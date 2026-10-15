@@ -25,8 +25,17 @@ const shapes: Record<GrowthStageName, Shape[]> = {
       fill: primitives.olive,
     },
   ],
-  sprouting: [ground, { d: "M22 50V40", stroke: primitives.olive, strokeWidth: 2.5 }, { d: "M22 42C17 42 14 38 14 34C19 34 22 37 22 42Z", fill: primitives.olive }],
-  growing: [ground, { d: "M22 50V24", stroke: primitives.olive, strokeWidth: 2.5 }, { d: "M22 34C14 34 10 28 10 22C18 22 22 27 22 34Z", fill: primitives.olive }, { d: "M22 28C30 28 34 22 34 16C26 16 22 21 22 28Z", fill: primitives.forest }],
+  sprouting: [
+    ground,
+    { d: "M22 50V40", stroke: primitives.olive, strokeWidth: 2.5 },
+    { d: "M22 42C17 42 14 38 14 34C19 34 22 37 22 42Z", fill: primitives.olive },
+  ],
+  growing: [
+    ground,
+    { d: "M22 50V24", stroke: primitives.olive, strokeWidth: 2.5 },
+    { d: "M22 34C14 34 10 28 10 22C18 22 22 27 22 34Z", fill: primitives.olive },
+    { d: "M22 28C30 28 34 22 34 16C26 16 22 21 22 28Z", fill: primitives.forest },
+  ],
   flourishing: [
     ground,
     { d: "M22 50V18", stroke: primitives.olive, strokeWidth: 2.5 },
@@ -46,7 +55,15 @@ export function GrowthStage({ stage, width = 44 }: GrowthStageProps) {
   return (
     <Svg width={width} height={height} viewBox="0 0 44 56">
       {shapes[stage].map((shape, index) => (
-        <Path key={index} d={shape.d} fill={shape.fill ?? "none"} stroke={shape.stroke} strokeWidth={shape.strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+        <Path
+          key={index}
+          d={shape.d}
+          fill={shape.fill ?? "none"}
+          stroke={shape.stroke}
+          strokeWidth={shape.strokeWidth}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       ))}
     </Svg>
   )

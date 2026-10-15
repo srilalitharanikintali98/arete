@@ -12,7 +12,11 @@ export function StreakIndicator({ days }: StreakIndicatorProps) {
 
   return (
     <View className="flex-row items-center gap-xs">
-      <Icon name="droplet" size={16} color={active ? semantic.icon.primary : primitives["gray-disabled"]} />
+      <Icon
+        name="droplet"
+        size={16}
+        color={active ? semantic.icon.primary : primitives["gray-disabled"]}
+      />
       <Text variant="meta" className={active ? "text-content" : "text-content-disabled"}>
         {`${days} ${days === 1 ? "day" : "days"}`}
       </Text>
