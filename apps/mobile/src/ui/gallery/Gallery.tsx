@@ -48,13 +48,13 @@ function Gallery() {
         </Section>
 
         <Section title="Serif fonts">
-          <Text className="text-display-name font-serif-regular">Lalitha</Text>
-          <Text className="text-quote-identity font-serif-medium">Someone who shows up every day</Text>
-          <Text className="text-heading-serif font-serif-medium">What will you do today?</Text>
-          <Text className="text-title-serif font-serif-semibold">Run a half marathon</Text>
-          <Text className="text-greeting font-serif-medium-italic">Good evening,</Text>
-          <Text className="text-caption-serif font-serif-medium-italic">That's who you're becoming.</Text>
-          <Text className="text-meta font-inter-regular">Meta line, 13px Inter</Text>
+          <Text variant="display-name">Lalitha</Text>
+          <Text variant="quote-identity">Someone who shows up every day</Text>
+          <Text variant="heading-serif">What will you do today?</Text>
+          <Text variant="title-serif">Run a half marathon</Text>
+          <Text variant="greeting">Good evening,</Text>
+          <Text variant="caption-serif">That's who you're becoming.</Text>
+          <Text variant="meta">Meta line, 13px Inter</Text>
         </Section>
 
         <Section title="Icons">
