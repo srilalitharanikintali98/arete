@@ -9,6 +9,8 @@ import { Button } from "../foundations/Button"
 import { GrowthStage, type GrowthStageName } from "../components/GrowthStage"
 import { StreakIndicator } from "../components/StreakIndicator"
 import HabitToken from "../components/HabitToken"
+import ProgressDots from "../components/ProgressDots"
+import ProgressBar from "../components/ProgressBar"
 
 const iconNames: IconName[] = [
   "check",
@@ -138,6 +140,15 @@ function Gallery() {
           <View className="flex-row gap-md">
             <HabitToken name="Morning walk" streak={12} done className="w-[100px]" />
             <HabitToken name="Read 20 min" streak={4} done={false} className="w-[100px]" />
+          </View>
+        </Section>
+
+        <Section title="Progress">
+          <View className="gap-md">
+            <ProgressDots total={6} done={1} />
+            <ProgressDots total={6} done={6} />
+            <ProgressBar total={12} done={4} />
+            <ProgressBar total={12} done={12} />
           </View>
         </Section>
       </ScrollView>
