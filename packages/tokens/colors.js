@@ -40,7 +40,7 @@ const tailwindColors = {
   tint: semantic.accent.subtle,
   gold: semantic.accent.gold,
   clay: semantic.decorative.clay,
-  hairline: semantic.border.hairline,
+  divider: semantic.border.hairline,
   inverse: semantic.background.inverse,
   content: {
     DEFAULT: semantic.text.primary,
