@@ -1,6 +1,6 @@
 import type { Goal, Habit, Profile, Task } from "../screens/today/types"
 
-export const FAIL = { identity: false, goals: false, habits: false, tasks: false }
+export const FAIL = { profile: false, goals: false, habits: false, tasks: false }
 
 export const PROFILE: Profile = {
   name: "Lalitha",
