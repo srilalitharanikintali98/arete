@@ -16,7 +16,7 @@ type HabitTokenProps = {
   className?: string
 }
 
-function HabitToken({ name, streak, done, onPress, className }: HabitTokenProps) {
+export function HabitToken({ name, streak, done, onPress, className }: HabitTokenProps) {
   return (
     <Pressable
       onPress={onPress}
@@ -45,5 +45,3 @@ function HabitToken({ name, streak, done, onPress, className }: HabitTokenProps)
     </Pressable>
   )
 }
-
-export default HabitToken
