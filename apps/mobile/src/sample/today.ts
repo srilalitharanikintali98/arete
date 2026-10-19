@@ -1,10 +1,8 @@
-import type { GrowthStageName } from "../ui/components/GrowthStage"
+import type { Goal, Habit, Profile, Task } from "../screens/today/types"
 
-export type Goal = { id: string; title: string; meta: string; stage: GrowthStageName }
-export type Habit = { id: string; name: string; streak: number; done: boolean }
-export type Task = { id: string; title: string; meta: string; done: boolean; overdue: boolean }
+export const FAIL = { identity: false, goals: false, habits: false, tasks: false }
 
-export const PROFILE = {
+export const PROFILE: Profile = {
   name: "Lalitha",
   identity: "Someone who keeps small promises to themselves.",
 }
