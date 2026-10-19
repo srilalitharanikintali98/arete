@@ -20,7 +20,7 @@ type BottomTabBarProps = {
 
 export function BottomTabBar({ tabs, activeKey, onPress, bottomInset = 0 }: BottomTabBarProps) {
   return (
-    <View className="border-t border-hairline bg-surface" style={{ paddingBottom: bottomInset }}>
+    <View className="border-t border-divider bg-surface" style={{ paddingBottom: bottomInset }}>
       <View className="flex-row px-sm py-xs">
         {tabs.map((tab) => {
           const active = tab.key === activeKey
