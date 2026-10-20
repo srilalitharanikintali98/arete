@@ -9,6 +9,7 @@ function greetingFor(hour: number) {
   return "Good evening,"
 }
 
+// TODO: Once the APIs are in place recheck prop types
 type TodayHeroProps = {
   name: string
   identity: string | null

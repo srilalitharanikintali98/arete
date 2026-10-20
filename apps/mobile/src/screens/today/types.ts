@@ -1,5 +1,7 @@
 import type { GrowthStageName } from "../../ui/components/GrowthStage"
 
+// TODO: Once the APIs are in place recheck types
+
 export type Status = "loading" | "error" | "ready"
 
 export type Goal = { id: string; title: string; meta: string; stage: GrowthStageName }

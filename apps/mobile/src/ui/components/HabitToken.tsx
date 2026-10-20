@@ -6,7 +6,7 @@ import { Pressable } from "../foundations/Pressable"
 import { Text } from "../foundations/Text"
 import { StreakIndicator } from "./StreakIndicator"
 
-// TODO: Habit item props will change later do - doing this for sample screen
+// TODO: Once the APIs are in place recheck prop types
 
 type HabitTokenProps = {
   name: string

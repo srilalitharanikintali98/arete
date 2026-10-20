@@ -2,6 +2,8 @@ import { View } from "react-native"
 import { Text } from "../foundations/Text"
 import { GrowthStage, type GrowthStageName } from "./GrowthStage"
 
+// TODO: Once the APIs are in place recheck prop types
+
 type GoalProgressRowProps = {
   title: string
   meta: string

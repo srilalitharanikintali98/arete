@@ -3,6 +3,7 @@ import { FAIL, HABITS } from "../../../sample/today"
 import { useSampleData } from "./useSampleData"
 
 export function useHabits() {
+  // TODO: Update to API Call
   const { data, status, update, retry } = useSampleData(HABITS, FAIL.habits)
 
   const toggle = useCallback(

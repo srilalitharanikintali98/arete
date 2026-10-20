@@ -2,7 +2,7 @@ import { View } from "react-native"
 import { Text } from "../foundations/Text"
 import Checkbox from "./Checkbox"
 
-// TODO: Task item props will change later do - doing this for sample screen
+// TODO: Once the APIs are in place recheck prop types
 
 type TaskRowProps = {
   title: string
