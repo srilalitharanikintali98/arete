@@ -7,8 +7,25 @@ import { Text } from "../foundations/Text"
 import { Icon, IconName } from "../foundations/Icon"
 import { Button } from "../foundations/Button"
 import { GrowthStage, type GrowthStageName } from "../components/GrowthStage"
+import { StreakIndicator } from "../components/StreakIndicator"
+import HabitToken from "../components/HabitToken"
+import ProgressDots from "../components/ProgressDots"
+import ProgressBar from "../components/ProgressBar"
 
-const iconNames: IconName[] = ["check", "archive", "edit", "add", "back", "droplet", "calendar", "home", "grid", "progress", "goals", "me"]
+const iconNames: IconName[] = [
+  "check",
+  "archive",
+  "edit",
+  "add",
+  "back",
+  "droplet",
+  "calendar",
+  "home",
+  "grid",
+  "progress",
+  "goals",
+  "me",
+]
 const stages: GrowthStageName[] = ["planted", "sprouting", "growing", "flourishing"]
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -48,13 +65,13 @@ function Gallery() {
         </Section>
 
         <Section title="Serif fonts">
-          <Text className="text-display-name font-serif-regular">Lalitha</Text>
-          <Text className="text-quote-identity font-serif-medium">Someone who shows up every day</Text>
-          <Text className="text-heading-serif font-serif-medium">What will you do today?</Text>
-          <Text className="text-title-serif font-serif-semibold">Run a half marathon</Text>
-          <Text className="text-greeting font-serif-medium-italic">Good evening,</Text>
-          <Text className="text-caption-serif font-serif-medium-italic">That's who you're becoming.</Text>
-          <Text className="text-meta font-inter-regular">Meta line, 13px Inter</Text>
+          <Text variant="display-name">Lalitha</Text>
+          <Text variant="quote-identity">Someone who shows up every day</Text>
+          <Text variant="heading-serif">What will you do today?</Text>
+          <Text variant="title-serif">Run a half marathon</Text>
+          <Text variant="greeting">Good evening,</Text>
+          <Text variant="caption-serif">That's who you're becoming.</Text>
+          <Text variant="meta">Meta line, 13px Inter</Text>
         </Section>
 
         <Section title="Icons">
@@ -69,15 +86,25 @@ function Gallery() {
           </View>
         </Section>
         <Section title="Pressable">
-          <Pressable className="items-center justify-center rounded-md border border-line px-4" onPress={() => setCount((c) => c + 1)}>
+          <Pressable
+            className="items-center justify-center rounded-md border border-line px-4"
+            onPress={() => setCount((c) => c + 1)}
+          >
             <Text>Tapped {count} times (hold to see the fade)</Text>
           </Pressable>
 
-          <Pressable className="items-center justify-center self-start rounded-md bg-tint" onPress={() => setCount((c) => c + 1)}>
+          <Pressable
+            className="items-center justify-center self-start rounded-md bg-tint"
+            onPress={() => setCount((c) => c + 1)}
+          >
             <View className="h-4 w-4 bg-primary" />
           </Pressable>
 
-          <Pressable disabled className="items-center justify-center rounded-md border border-line px-4" onPress={() => setCount((c) => c + 1)}>
+          <Pressable
+            disabled
+            className="items-center justify-center rounded-md border border-line px-4"
+            onPress={() => setCount((c) => c + 1)}
+          >
             <Text>Disabled (should not count)</Text>
           </Pressable>
         </Section>
@@ -99,6 +126,29 @@ function Gallery() {
                 <Text variant="meta">{stage}</Text>
               </View>
             ))}
+          </View>
+        </Section>
+
+        <Section title="Streak Indicator">
+          <View className="gap-md">
+            <StreakIndicator days={12} />
+            <StreakIndicator days={0} />
+          </View>
+        </Section>
+
+        <Section title="Habit Token">
+          <View className="flex-row gap-md">
+            <HabitToken name="Morning walk" streak={12} done className="w-[100px]" />
+            <HabitToken name="Read 20 min" streak={4} done={false} className="w-[100px]" />
+          </View>
+        </Section>
+
+        <Section title="Progress">
+          <View className="gap-md">
+            <ProgressDots total={6} done={1} />
+            <ProgressDots total={6} done={6} />
+            <ProgressBar total={12} done={4} />
+            <ProgressBar total={12} done={12} />
           </View>
         </Section>
       </ScrollView>

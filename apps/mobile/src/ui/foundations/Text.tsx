@@ -10,6 +10,12 @@ const variants = {
   eyebrow: "text-eyebrow font-inter-semibold uppercase",
   label: "text-label font-inter-semibold",
   meta: "text-meta font-inter-regular",
+  "display-name": "font-serif-regular text-display-name",
+  "quote-identity": "font-serif-medium text-quote-identity",
+  "heading-serif": "font-serif-medium text-heading-serif",
+  "title-serif": "font-serif-semibold text-title-serif",
+  greeting: "font-serif-medium-italic text-greeting",
+  "caption-serif": "font-serif-medium-italic text-caption-serif",
 }
 
 const base = "text-content"

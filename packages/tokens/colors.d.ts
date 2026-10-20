@@ -78,8 +78,8 @@ export namespace tailwindColors {
     export { gold_1 as gold };
     import clay_1 = clay;
     export { clay_1 as clay };
-    import hairline_1 = hairline;
-    export { hairline_1 as hairline };
+    import divider = hairline;
+    export { divider };
     import inverse_1 = inverse;
     export { inverse_1 as inverse };
     export namespace content {

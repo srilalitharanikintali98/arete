@@ -7,5 +7,11 @@ type Props = PressableProps & {
 }
 
 export function Pressable({ className, ...rest }: Props) {
-  return <RNPressable accessibilityRole="button" className={cn("min-h-11 min-w-11 active:opacity-70 disabled:opacity-50", className)} {...rest} />
+  return (
+    <RNPressable
+      accessibilityRole="button"
+      className={cn("min-h-11 min-w-11 active:opacity-70 disabled:opacity-50", className)}
+      {...rest}
+    />
+  )
 }
