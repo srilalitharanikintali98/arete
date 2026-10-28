@@ -10,26 +10,26 @@ const prisma = new PrismaClient({ adapter })
 // v0 keeps to two life areas. Safe to re-run: nothing is created twice.
 const seed: {
   lifeArea: string
-  goals: { name: string; description?: string; status: GoalStatus }[]
+  goals: { title: string; description?: string; status: GoalStatus }[]
 }[] = [
   {
     lifeArea: "Health",
     goals: [
       {
-        name: "Run a 10K",
+        title: "Run a 10K",
         description: "Build up to 10K with three runs a week",
         status: "ACTIVE",
       },
-      { name: "Learn to swim", status: "INTEREST" },
-      { name: "Morning yoga routine", status: "PAUSED" },
+      { title: "Learn to swim", status: "INTEREST" },
+      { title: "Morning yoga routine", status: "PAUSED" },
     ],
   },
   {
     lifeArea: "Learning",
     goals: [
-      { name: "Learn backend development with Node.js", status: "ACTIVE" },
-      { name: "Ship Arete v0", description: "One life area working end to end", status: "ACTIVE" },
-      { name: "Set up the Arete monorepo", status: "DONE" },
+      { title: "Learn backend development with Node.js", status: "ACTIVE" },
+      { title: "Ship Arete v0", description: "One life area working end to end", status: "ACTIVE" },
+      { title: "Set up the Arete monorepo", status: "DONE" },
     ],
   },
 ]
@@ -54,7 +54,7 @@ async function main() {
 
     for (const goal of area.goals) {
       const existing = await prisma.goal.findFirst({
-        where: { name: goal.name, lifeAreaId: lifeArea.id, userId: user.id },
+        where: { title: goal.title, lifeAreaId: lifeArea.id, userId: user.id },
       })
       if (!existing) {
         await prisma.goal.create({
