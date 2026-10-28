@@ -15,7 +15,11 @@ const seed: {
   {
     lifeArea: "Health",
     goals: [
-      { name: "Run a 10K", description: "Build up to 10K with three runs a week", status: "ACTIVE" },
+      {
+        name: "Run a 10K",
+        description: "Build up to 10K with three runs a week",
+        status: "ACTIVE",
+      },
       { name: "Learn to swim", status: "INTEREST" },
       { name: "Morning yoga routine", status: "PAUSED" },
     ],
@@ -31,6 +35,16 @@ const seed: {
 ]
 
 async function main() {
+  const email = process.env.SEED_USER_EMAIL
+  if (!email) {
+    throw new Error("SEED_USER_EMAIL is not set. Add it to the root .env file.")
+  }
+
+  const user = await prisma.user.findUnique({ where: { email } })
+  if (!user) {
+    throw new Error(`No user found with email ${email}. Create the account in Supabase Auth first.`)
+  }
+
   for (const area of seed) {
     const lifeArea = await prisma.lifeArea.upsert({
       where: { name: area.lifeArea },
@@ -40,16 +54,16 @@ async function main() {
 
     for (const goal of area.goals) {
       const existing = await prisma.goal.findFirst({
-        where: { name: goal.name, lifeAreaId: lifeArea.id },
+        where: { name: goal.name, lifeAreaId: lifeArea.id, userId: user.id },
       })
       if (!existing) {
         await prisma.goal.create({
-          data: { ...goal, lifeAreaId: lifeArea.id },
+          data: { ...goal, lifeAreaId: lifeArea.id, userId: user.id },
         })
       }
     }
   }
-  console.log("Seeded life areas and goals")
+  console.log(`Seeded life areas and goals for ${email}`)
 }
 
 main()
