@@ -49,8 +49,8 @@ model Goal {
   status      GoalStatus @default(INTEREST)
   lifeAreaId  String     @db.Uuid
   lifeArea    LifeArea   @relation(fields: [lifeAreaId], references: [id])
-  userId      String?    @db.Uuid
-  user        User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String    @db.Uuid
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
