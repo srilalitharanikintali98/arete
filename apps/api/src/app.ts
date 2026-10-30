@@ -1,5 +1,6 @@
 import { Hono } from "hono"
 import { prisma } from "@arete/db"
+import { goalsRoutes } from "./routes/goals"
 
 export const app = new Hono()
 
@@ -12,3 +13,5 @@ app.get("/life-areas", async (c) => {
   })
   return c.json(lifeAreas)
 })
+
+app.route("/goals", goalsRoutes)
